@@ -30,9 +30,23 @@ void game() {
   if (akey == true) ballx = ballx - 5;
   if (dkey == true) ballx = ballx + 5;
   
-   
- 
+       
 
+    
+    textSize(50);
+    text(lives,700,700);
+    if (brickery >= height) {
+        brickerx = width/2;
+        brickery = height/1.5;
+      lives = lives - 1;
+      vx = 0;
+      vy = 2.5;
+    }
+    if (lives == 0) mode = GAMEOVER;
+    
+    
+    text(score,50,700);
+    if (score == 49) mode = GAMEOVER;
 }
 
 void manageBrick (int i) {
@@ -45,19 +59,14 @@ void manageBrick (int i) {
   if (y[i] == 400) fill (232,56,229);
        circle(x[i],y[i],bd);
     if (dist(brickerx,brickery,x[i],y[i]) < bd/2 + brickerd/2) {
-      vx = (bx - x[i])/66;
-      vy = (by - y[i])/66;
+      vx = (bx - x[i])/25;
+      vy = (by - y[i])/25;
       alive[i] = false;
+      score = score + 1;
     }
+
     
-    int lives = 3;
     
-    text(lives,700,700);
-    if (brickery >= height) {
-        brickerx = width/2;
-        brickery = height/1.5;
-      lives = lives - 1;
-    }
   if (ekey == true) mode = PAUSE;
 
 

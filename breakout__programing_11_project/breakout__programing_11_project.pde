@@ -15,6 +15,8 @@ float ballx,bally,balld, brickerx,brickery,brickerd, bx,by,bd ,vx,vy;
 
 boolean akey,dkey,ekey;
 
+int lives,score;
+
 boolean[] alive;
 
 void setup() {
@@ -54,8 +56,9 @@ void setup() {
     }
     i++;
   }
-    
   
+    lives = 3;
+  score = 0;
   
   
 } 
